@@ -26,56 +26,41 @@ class Line:
 
 class Shape ():
     @abstractmethod
-    def area_s (self):
+    def area (self):
         pass 
     
     @abstractmethod
-    def perimeter_s (self):
+    def perimeter (self):
         pass 
 
 class Square (Shape, Line):
     def __init__ (self):
         super().__init__ (first_point, second_point)
     
-    def area_s (self):
-        return line.length ** 2
-
     @property
     def area (self):
-        return self.area_s ()
+        return line.length ** 2
     
-    def perimeter_s (self):
-        return line.length * 4
-
     @property
     def perimeter (self):
-        return self.perimeter_s () 
+        return line.length * 4 
         
     def info (self):
         print (f'Квадрат со стороной {square.length} имеет площадь {square.area} и периметр {square.perimeter}')
 
 class Cube(Square):
         
-    def area_s (self):
-        return 3 * line.length ** 2 
-    
     @property
     def area (self):
-        return self.area_s ()
-
-    def perimeter_s (self):
-        return line.length * 12
+        return 6 * line.length ** 2
     
     @property
     def perimeter (self):
-        return self.perimeter_s ()
-
-    def volume_s (self):
-        return line.length ** 3 
+        return line.length * 12
     
     @property
     def volume (self):
-        return self.volume_s ()
+        return line.length ** 3
        
     def info (self):
         print (f'Куб со стороной {cube.length} имеет площадь {cube.area}, периметр {cube.perimeter} и объем {cube.volume}')
@@ -85,20 +70,14 @@ class Rect (Shape):
     def __init__(self, line_a, line_b):
         self.line_a = line_a
         self.line_b = line_b
-
-    def area_s (self):
-        return line_a.length * line_b.length  
-    
+ 
     @property
     def area (self):
-        return self.area_s ()
-
-    def perimeter_s (self):
-        return line_a.length * 2 + line_b.length * 2
+        return line_a.length * line_b.length
     
     @property
     def perimeter (self):
-        return self.perimeter_s ()
+        return line_a.length * 2 + line_b.length * 2
     
     def info (self):
         print (f'Прямоугольник со сторонами {line_a.length} и {line_b.length} имеет площадь {rect.area} и периметр {rect.perimeter}')
